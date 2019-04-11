@@ -518,7 +518,7 @@ public class CIJenkinsServicesImpl extends CIPluginServices {
 	private PipelineNode createPipelineNode(String name, Job job, boolean includeParameters) {
 		PipelineNode tmpConfig = dtoFactory.newDTO(PipelineNode.class)
 				.setJobCiId(JobProcessorFactory.getFlowProcessor(job).getTranslateJobName())
-				.setName(name);
+				.setName(job.getFullName());
 		if (includeParameters) {
 			tmpConfig.setParameters(ParameterProcessors.getConfigs(job));
 		}
